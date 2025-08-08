@@ -101,7 +101,6 @@ except:
     st.error("⚠️ OpenAI API key not found. Please set OPENAI_API_KEY in your .env file.")
 
 
-
 # Load product data
 @st.cache_data
 def load_products():
@@ -111,49 +110,48 @@ def load_products():
 products = load_products()
 
 # AI-powered filter extraction
-def extract_filters_with_ai(query):
-    if not openai_available:
-        return None
-    
+def extract_filters_from_openai(user_query):
     prompt = f"""
-    Analyze this product search query and extract relevant filters in JSON format:
-    
-    Query: "{query}"
-    
-    Extract:
-    - category: product category/type (e.g., "shoes", "electronics", "clothing")
-    - max_price: maximum price if mentioned (number only)
-    - min_price: minimum price if mentioned (number only) 
-    - min_rating: minimum rating if mentioned (1-5 scale)
-    - keywords: important product features or brands mentioned
-    
-    Return valid JSON only:
-    {{
-        "category": "category_name or null",
-        "max_price": number_or_null,
-        "min_price": number_or_null,
-        "min_rating": number_or_null,
-        "keywords": ["keyword1", "keyword2"] or null
-    }}
-    """
+You are a filter extraction assistant for an e-commerce app.
+You are given a natural language search query about products.
+
+The product catalog contains:
+- name (string)
+- price (number in USD)
+- category (Sports, Electronics, Home Appliances, Accessories)
+- description (string)
+- rating (number from 1 to 5)
+
+Your task:
+1. Identify the product if mentioned or implied (otherwise null).
+2. Extract a minimum price if mentioned (otherwise null).
+3. Extract a maximum price if mentioned (otherwise null).
+4. Extract a minimum rating if mentioned (otherwise null).
+
+Return ONLY valid JSON in this format:
+{{
+  "category": "string or null",
+  "min_price": number or null,
+  "max_price": number or null,
+  "min_rating": number or null
+}}
+
+Query: "{user_query}"
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0
+    )
 
     try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=200,
-            temperature=0
-        )
-        
-        content = response.choices[0].message.content.strip()
-        # Extract JSON from response
-        json_match = re.search(r'\{.*\}', content, re.DOTALL)
-        if json_match:
-            return json.loads(json_match.group())
+        filters = json.loads(response.choices[0].message.content)
     except Exception as e:
-        st.error(f"processing error: {str(e)}")
-    
-    return None
+        filters = {"category": None, "max_price": None, "min_rating": None}
+
+    return filters
+
 
 # Enhanced filtering function
 def filter_products(products, filters, query=""):
@@ -228,7 +226,7 @@ search_query = st.text_input("🔍 Search products")
 if st.button("Search", type="primary") or search_query:
     if search_query and openai_available:
         with st.spinner("🤖 Processing your request with AI..."):
-            ai_filters = extract_filters_with_ai(search_query)
+            ai_filters = extract_filters_from_openai(search_query)
             
         if ai_filters:
             # Display extracted filters
