@@ -1,10 +1,21 @@
 # AI Product Catalog
 
+## Live Demo
+
+Experience the AI-powered product catalog live...no setup needed:
+👉 https://ai-appuct-catalog-nlqgmmxpzhcnbcmzpyjngb.streamlit.app/
+
+---
+
 ## Overview
 
 This is a small e-commerce product catalog app built with Streamlit. It displays a static list of products and allows users to filter by category, price, and rating. The standout feature is an AI-powered natural language search that extracts user intents and filters using the OpenAI GPT-3.5-turbo API.
 
-## How to Run
+---
+
+## How to Run (Optional)
+
+If you want to run the app locally, follow these steps. Otherwise, just use the live demo link above.
 
 1. Clone this repository.
 2. Create a `.env` file in the project root containing your OpenAI API key:
@@ -24,9 +35,13 @@ This is a small e-commerce product catalog app built with Streamlit. It displays
    ```
 5. Use the sidebar filters or type natural language queries in the search bar (e.g., "show me sports products under €100").
 
+---
+
 ## AI Feature
 
 * **Smart Product Search (NLP):** The app uses OpenAI's GPT-3.5-turbo to parse user queries in natural language and extract structured filters (category, price range, minimum rating, keywords). These filters dynamically narrow the product list, enhancing user search experience.
+
+---
 
 ## Tools and Libraries
 
@@ -35,11 +50,15 @@ This is a small e-commerce product catalog app built with Streamlit. It displays
 * Python standard libraries (json, os, re)
 * python-dotenv (environment variable management)
 
+---
+
 ## Assumptions
 
 * The product catalog is static and loaded from a local JSON file.
 * Basic sidebar filters complement the AI search.
 * The app is intended as a demo prototype for e-commerce AI enhancements.
+
+---
 
 ## Bonus Blockchain Integration Idea
 
