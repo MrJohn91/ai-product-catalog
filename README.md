@@ -22,7 +22,7 @@ This is a small e-commerce product catalog app built with Streamlit. It displays
    ```
    streamlit run app.py
    ```
-5. Use the sidebar filters or type natural language queries in the search bar (e.g., "running shoes under $100 with good reviews").
+5. Use the sidebar filters or type natural language queries in the search bar (e.g., "show me sports products under €100").
 
 ## AI Feature
 

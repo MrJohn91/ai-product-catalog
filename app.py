@@ -151,7 +151,7 @@ def extract_filters_with_ai(query):
         if json_match:
             return json.loads(json_match.group())
     except Exception as e:
-        st.error(f"AI processing error: {str(e)}")
+        st.error(f"processing error: {str(e)}")
     
     return None
 
@@ -283,6 +283,3 @@ if st.button("Search", type="primary") or search_query:
                 "- Try broader search terms\n" 
                 "- Check available categories in the sidebar\n"
                 "- Adjust price range or rating filters")
-
-else:
-    st.info("Please enter a search query above to find products.")
