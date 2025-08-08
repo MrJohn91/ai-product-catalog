@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Running Shoes",
+    "price": 75,
+    "category": "Sports",
+    "description": "Lightweight running shoes with breathable mesh and cushioned sole.",
+    "rating": 4.5
+  },
+  {
+    "name": "Wireless Headphones",
+    "price": 120,
+    "category": "Electronics",
+    "description": "Noise-cancelling over-ear headphones with 30 hours of battery life.",
+    "rating": 4.7
+  },
+  {
+    "name": "Coffee Maker",
+    "price": 45,
+    "category": "Home Appliances",
+    "description": "Compact drip coffee maker with reusable filter and auto-shutoff.",
+    "rating": 4.2
+  },
+  {
+    "name": "Yoga Mat",
+    "price": 25,
+    "category": "Sports",
+    "description": "Non-slip yoga mat with 6mm thickness for extra comfort.",
+    "rating": 4.3
+  },
+  {
+    "name": "Smartphone Stand",
+    "price": 15,
+    "category": "Accessories",
+    "description": "Adjustable aluminum smartphone stand for desk use.",
+    "rating": 4.1
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "price": 60,
+    "category": "Electronics",
+    "description": "Portable waterproof Bluetooth speaker with deep bass.",
+    "rating": 4.6
+  },
+  {
+    "name": "Blender",
+    "price": 55,
+    "category": "Home Appliances",
+    "description": "500W blender with 3-speed control and 1.5L glass jar.",
+    "rating": 4.0
+  },
+  {
+    "name": "Gaming Mouse",
+    "price": 35,
+    "category": "Electronics",
+    "description": "Ergonomic gaming mouse with adjustable DPI and RGB lighting.",
+    "rating": 4.4
+  },
+  {
+    "name": "Sports Watch",
+    "price": 90,
+    "category": "Sports",
+    "description": "Water-resistant sports watch with heart rate monitor.",
+    "rating": 4.3
+  },
+  {
+    "name": "Electric Kettle",
+    "price": 30,
+    "category": "Home Appliances",
+    "description": "1.7L electric kettle with rapid boil and auto shut-off feature.",
+    "rating": 4.5
+  }
+]
