@@ -1,8 +1,4 @@
-Great! Here’s a clean README draft based on your app and project requirements:
-
----
-
-# Product Catalog with AI functionality,
+# AI Product Catalog
 
 ## Overview
 
@@ -26,7 +22,7 @@ This is a small e-commerce product catalog app built with Streamlit. It displays
    ```
    streamlit run app.py
    ```
-5. Use the sidebar filters or type natural language queries in the search bar (e.g., “running shoes under \$100 with good reviews”).
+5. Use the sidebar filters or type natural language queries in the search bar (e.g., "running shoes under $100 with good reviews").
 
 ## AI Feature
 
